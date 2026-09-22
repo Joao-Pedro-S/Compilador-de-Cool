@@ -184,13 +184,13 @@ class Lexico:
     # keywords
     def _ler_identificador(self):
         inicio = self.pos
-        while not self._fim() and self._peek().isalpha() or self._peek() == "_":
+        while not self._fim() and self._peek().isalnum() or self._peek() == "_":
             self._advance()
         lex = self.src[inicio:self.pos]
         #converte o lex todo em minúsculo pelo bem de ser case insensitive
         lexm = lex.lower()
         if lexm in KEYWORDS:
-            self._save(self.linha, KEYWORDS[lex], lex)
+            self._save(self.linha, KEYWORDS[lexm], lex)
 
         elif lexm == "true" and lex[0] == "t":
             self._save(self.linha, "TRUE", lex)

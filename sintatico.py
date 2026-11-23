@@ -1,4 +1,4 @@
-#########################################################
+####################################################################################
 #uso:
 #   inicializa o parser recebendo uma lista de tokens:
 #       parser = Sintatico(tokens)
@@ -11,7 +11,7 @@
 #        for e in parser.erros: print(e) #erros encontrados podem ser listados
 #    else:
 #        print(sintatico.mostrar_ast(ast))
-#########################################################
+####################################################################################
 from dataclasses import dataclass, fields
 
 COMPARADORES = ("LT", "LE", "EQUALS") #será usado para verificar expressões
@@ -156,7 +156,7 @@ class Sintatico:
         for tok in tokens:
             if tok.tipo == "ERRO":
                 self.erros.append(ErroSintatico(tok.linha, f"Erro léxico: {tok.lexema}"))
-            elif tok.tipo == "DESCONHCIDO":
+            elif tok.tipo == "DESCONHECIDO":
                 self.erros.append(ErroSintatico(tok.linha, f"Erro léxico: caractere desconhecido '{tok.lexema}'"))
             else:
                 self.tokens.append(tok)

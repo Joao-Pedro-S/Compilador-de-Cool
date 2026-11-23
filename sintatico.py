@@ -12,6 +12,7 @@
 #    else:
 #        print(sintatico.mostrar_ast(ast))
 ####################################################################################
+from __future__ import annotations #O Python padrão na minha máquina é 3.13
 from dataclasses import dataclass, fields
 
 COMPARADORES = ("LT", "LE", "EQUALS") #será usado para verificar expressões
